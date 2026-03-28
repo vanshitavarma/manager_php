@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #f1f5f9; /* Slate 100 - Clean Light Gray */
+    color: #1e293b; /* Slate 800 - Deep Gray Text */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+
+  .btn-primary {
+    background: #2563eb; /* Blue 600 */
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
+  }
+
+  .btn-primary:hover {
+    background: #1d4ed8; /* Blue 700 */
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .input-field {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    color: #0f172a;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    outline: none;
+  }
+
+  .input-field:focus {
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.05);
+  }
+
+  .label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569; /* Slate 600 */
+    margin-bottom: 0.5rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .noise-bg::before {
+    display: none; /* Hide noise in light mode for a cleaner look */
+  }
+}
+
+/* Data table custom styles for Light Mode */
+.rdt_Table {
+  background: transparent !important;
+}
+.rdt_TableHead .rdt_TableHeadRow {
+  background: #f8fafc !important; /* Slate 50 */
+  border-bottom: 2px solid #f1f5f9 !important;
+  color: #475569 !important;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+.rdt_TableBody .rdt_TableRow {
+  background: #ffffff !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  color: #1e293b !important;
+  transition: all 0.2s ease !important;
+}
+.rdt_TableBody .rdt_TableRow:hover {
+  background: #f8fafc !important;
+  transform: scale(1.002);
+}
+.rdt_Pagination {
+  background: #ffffff !important;
+  color: #64748b !important;
+  border-top: 1px solid #f1f5f9 !important;
+}
+.rdt_Pagination button {
+  color: #2563eb !important;
+}
+
+/* Professional Orbs (More subtle and elegant in Light Mode) */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.05; /* Reduced opacity */
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-1 {
+  width: 700px;
+  height: 700px;
+  background: #2563eb;
+  top: -200px;
+  left: -100px;
+}
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  background: #8b5cf6;
+  bottom: -150px;
+  right: -100px;
+}
