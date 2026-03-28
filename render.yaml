@@ -39,9 +39,25 @@ services:
         value: 86400
       - key: database.default.DBDriver
         value: Postgre
-      - key: database.default.DSN # Simplest way to connect on Render
+      - key: database.default.hostname
         fromDatabase:
           name: teachvault-db
-          property: connectionString
+          property: host
+      - key: database.default.database
+        fromDatabase:
+          name: teachvault-db
+          property: database
+      - key: database.default.username
+        fromDatabase:
+          name: teachvault-db
+          property: user
+      - key: database.default.password
+        fromDatabase:
+          name: teachvault-db
+          property: password
+      - key: database.default.port
+        fromDatabase:
+          name: teachvault-db
+          property: port
       - key: app.baseURL
         sync: false # Set this to the backend URL on Render
