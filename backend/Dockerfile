@@ -24,6 +24,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install --no-dev --optimize-autoloader
 
 # Set permissions
+RUN chmod +x entrypoint.sh
 RUN chown -R www-data:www-data /var/www/html/writable
 
 EXPOSE 80
+
+ENTRYPOINT ["./entrypoint.sh"]

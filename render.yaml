@@ -1,3 +1,8 @@
+databases:
+  - name: teachvault-db
+    plan: free # Use free tier PostgreSQL
+    user: admin
+
 services:
   # React Frontend - Static Site
   - type: web
@@ -33,16 +38,10 @@ services:
       - key: JWT_EXPIRE
         value: 86400
       - key: database.default.DBDriver
-        value: MySQLi
-      - key: database.default.hostname
-        sync: false
-      - key: database.default.database
-        sync: false
-      - key: database.default.username
-        sync: false
-      - key: database.default.password
-        sync: false
-      - key: database.default.port
-        sync: false
+        value: Postgre
+      - key: database.default.DSN # Simplest way to connect on Render
+        fromDatabase:
+          name: teachvault-db
+          property: connectionString
       - key: app.baseURL
         sync: false # Set this to the backend URL on Render

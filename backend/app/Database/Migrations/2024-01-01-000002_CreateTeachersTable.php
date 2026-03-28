@@ -25,11 +25,12 @@ class CreateTeachersTable extends Migration
                 'constraint' => 255,
             ],
             'gender' => [
-                'type'       => 'ENUM',
-                'constraint' => ['male', 'female', 'other'],
+                'type'       => 'VARCHAR',
+                'constraint' => 20, // Validation will handle the male/female/other list
             ],
             'year_joined' => [
-                'type'       => 'YEAR',
+                'type'       => 'INT',
+                'constraint' => 4,
             ],
             'bio' => [
                 'type' => 'TEXT',
