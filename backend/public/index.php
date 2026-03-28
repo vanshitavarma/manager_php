@@ -37,6 +37,12 @@ if (getcwd() . DIRECTORY_SEPARATOR !== FCPATH) {
     chdir(FCPATH);
 }
 
+// SAFEGUARD: Ensure the environment is set properly for Render
+if (! isset($_SERVER['CI_ENVIRONMENT'])) {
+    $_SERVER['CI_ENVIRONMENT'] = 'production';
+}
+define('ENVIRONMENT', $_SERVER['CI_ENVIRONMENT']);
+
 /*
  *---------------------------------------------------------------
  * BOOTSTRAP THE APPLICATION
