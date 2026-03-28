@@ -43,6 +43,6 @@ services:
       - key: database.default.password
         sync: false
       - key: database.default.port
-        value: 3306
+        sync: false
       - key: app.baseURL
         sync: false # Set this to the backend URL on Render
