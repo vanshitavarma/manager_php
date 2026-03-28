@@ -9,10 +9,7 @@ services:
     pullRequestPreviewsEnabled: false
     envVars:
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: teachvault-backend
-          property: url
+        sync: false # Set this to the backend URL once it is created
     headers:
       - path: /*
         name: Cache-Control
@@ -22,12 +19,12 @@ services:
         source: /*
         destination: /index.html
 
-  # CodeIgniter Backend - Web Service (PHP)
+  # CodeIgniter Backend - Web Service (Dockerized)
   - type: web
     name: teachvault-backend
-    env: php
+    env: docker
     rootDir: backend
-    buildCommand: composer install --no-dev --optimize-autoloader
+    plan: free # Ensure we use the free tier for Docker
     envVars:
       - key: CI_ENVIRONMENT
         value: production
@@ -48,7 +45,4 @@ services:
       - key: database.default.port
         value: 3306
       - key: app.baseURL
-        fromService:
-          type: web
-          name: teachvault-backend
-          property: url
+        sync: false # Set this to the backend URL on Render
